@@ -1,0 +1,139 @@
+<%@ Page Language="C#" %>
+<%@ Import Namespace="System.IO" %>
+
+<%
+string msg = Request.QueryString["msg"];
+
+if (msg == null)
+{
+    Response.Write("Ask me something about placement or companies.");
+    return;
+}
+
+msg = msg.ToLower();
+
+string path = Server.MapPath("~/placement_qa.txt");
+
+if (!File.Exists(path))
+{
+    Response.Write("Dataset file not found.");
+    return;
+}
+
+string[] lines = File.ReadAllLines(path);
+
+foreach (string line in lines)
+{
+    string[] qa = line.Split('|');
+
+    if (qa.Length == 2)
+    {
+        string q = qa[0].ToLower();
+        string a = qa[1];
+
+        if (msg.Contains(q))
+        {
+            Response.Write(a);
+            return;
+        }
+    }
+}
+
+Response.Write("Sorry, I could not understand your question. Try asking about placement, eligibility, CGPA or companies.");
+%>
+hello|Hello! I am your AI Placement Assistant. Ask me about placement, companies, eligibility or interview preparation.
+placement|Campus placement is the recruitment process where companies hire students from colleges.
+resume|A resume should include education, skills, projects and internships.
+interview|Prepare DSA, DBMS, OS and coding problems.
+cgpa|Most companies require a minimum CGPA of 6 to 7 for eligibility.
+backlog|Most companies do not allow active backlogs during placement.
+tcs eligibility|TCS usually requires 60 percent in 10th, 12th and graduation with no active backlogs.
+infosys eligibility|Infosys typically requires around 60 percent and good communication skills.
+wipro eligibility|Wipro usually requires around 60 percent and strong coding basics.
+accenture eligibility|Accenture requires around 65 percent marks and good problem solving ability.
+amazon eligibility|Amazon focuses mainly on strong data structures and algorithms.
+google eligibility|Google requires strong algorithms, system design and coding skills.
+microsoft eligibility|Microsoft interviews focus on coding and problem solving ability.
+placement preparation|Focus on coding practice, aptitude and communication skills.
+coding interview|Coding interviews test algorithms and problem solving skills.
+hr interview|HR interviews test personality and communication skills.
+strength|Explain your strengths confidently in interviews.
+weakness|Mention a weakness you are improving.
+salary|Freshers salary depends on company and role but ranges from 3 to 20 LPA.
+job opening|Job openings are usually announced during campus recruitment drives.
+internship|Internships help you gain real industry experience.
+frontend developer|Frontend developers build the user interface of websites.
+backend developer|Backend developers manage server logic and databases.
+full stack developer|Full stack developers work on both frontend and backend.
+java|Java is an object oriented programming language widely used in enterprise applications.
+python|Python is widely used in AI, automation and data science.
+dsa|Data structures and algorithms are essential for coding interviews.
+dbms|Database Management System manages structured data.
+os|Operating systems manage hardware resources.
+cn|Computer networks allow communication between computers.
+leetcode|LeetCode is a platform for coding interview practice.
+hackerrank|HackerRank provides coding challenges and certifications.
+codechef|CodeChef hosts competitive programming contests.
+geeksforgeeks|GeeksforGeeks provides coding tutorials and interview preparation material.
+placement preparation tips|Focus on coding practice, aptitude and communication skills.
+how to prepare for placement|Practice DSA, aptitude questions and work on projects.
+best way to prepare for placement|Practice coding daily and revise core subjects.
+how to crack campus placement|Improve coding skills, communication and resume quality.
+what to study for placement|Study DSA, DBMS, OS, CN and practice aptitude questions.
+minimum cgpa for placement|Most companies require minimum CGPA of 6 or 7.
+cgpa requirement for tcs|TCS usually requires around 60 percent or equivalent CGPA.
+cgpa requirement for infosys|Infosys generally requires around 60 percent.
+cgpa requirement for wipro|Wipro requires around 60 percent and no active backlogs.
+cgpa requirement for accenture|Accenture generally requires around 65 percent.
+can i get placement with low cgpa|Yes if you have strong coding skills and projects.
+when do placements start|Campus placements usually start in the final year.
+which semester placements start|Placements usually start in the 7th semester.
+when companies visit college|Companies usually visit during placement drives.
+how companies recruit students|Companies recruit through aptitude tests and interviews.
+what is technical interview|Technical interview tests coding and computer science knowledge.
+what is hr interview|HR interview evaluates personality and communication skills.
+how to answer hr interview questions|Be honest, confident and explain your experiences clearly.
+most common interview question|Tell me about yourself is a very common interview question.
+what should resume include|Resume should include education, skills, projects and internships.
+how many pages resume should be|Freshers resume should be one page.
+how to make good resume|Highlight projects, technical skills and achievements.
+resume mistakes|Avoid spelling mistakes and unnecessary information.
+how to improve coding skills|Practice coding problems daily on coding platforms.
+best site for coding practice|LeetCode, HackerRank and CodeChef are popular platforms.
+how many coding questions should i practice|Practice at least 2 to 3 coding problems daily.
+which language is best for coding interviews|Java, C++ and Python are commonly used.
+tcs interview process|TCS interview process includes aptitude and technical interview.
+infosys interview process|Infosys interview process includes aptitude and HR interview.
+wipro interview process|Wipro interview process includes aptitude and coding round.
+accenture interview process|Accenture interview process includes aptitude and technical interview.
+amazon interview process|Amazon interviews focus on data structures and algorithms.
+google interview process|Google interviews include coding and system design questions.
+what is java|Java is an object oriented programming language.
+what is python|Python is a high level programming language used in many fields.
+what is javascript|JavaScript is used to create interactive websites.
+what is c++|C++ is a programming language used for system and competitive programming.
+what is html|HTML is used to create the structure of web pages.
+what is css|CSS is used to design web pages.
+what is react|React is a JavaScript library for building user interfaces.
+what is nodejs|Node.js allows JavaScript to run on servers.
+what is dbms|DBMS is a system used to manage databases.
+what is operating system|Operating system manages hardware and software resources.
+what is computer network|Computer networks allow communication between computers.
+what is oops|OOPS is a programming paradigm based on objects.
+what is data structures|Data structures organize data efficiently.
+what is software engineer|Software engineers design and develop applications.
+what is frontend developer|Frontend developers build the user interface of websites.
+what is backend developer|Backend developers manage server logic and databases.
+what is full stack developer|Full stack developers work on frontend and backend.
+why internship is important|Internships provide real industry experience.
+how to get internship|Build projects and apply through job portals.
+best time for internship|Second or third year is good for internships.
+average fresher salary|Freshers salary ranges from 3 LPA to 10 LPA.
+highest fresher salary|Top companies may offer packages above 20 LPA.
+software engineer salary|Software engineer salary depends on company and experience.
+importance of communication skills|Communication skills help in interviews and teamwork.
+importance of teamwork|Teamwork is important in software development projects.
+importance of problem solving|Problem solving skills help in coding interviews.
+
+
+

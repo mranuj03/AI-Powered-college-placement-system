@@ -1,0 +1,139 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="student.master.cs" Inherits="CollegePlacementManagementSystem.student" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+
+    <style>
+        li i {
+            color: #FB6936;
+        }
+    </style>
+
+    <title></title>
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+
+    <link href="assets/fontawesome/css/all.css" rel="stylesheet" />
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+
+    <meta name="description" content="CoreUI Admin Template" />
+    <meta name="author" content="CoreUI" />
+
+    <link rel="stylesheet" href="assets/vendors/simplebar/css/simplebar.css" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <link href="assets/css/examples.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-118965717-3');
+        gtag('config', 'UA-118965717-5');
+    </script>
+
+    <link href="assets/vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <form id="form1" runat="server">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+
+            <div class="sidebar-brand d-none d-md-flex">
+                <h3><i class="fa-solid fa-building"></i></h3>
+            </div>
+
+            <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
+
+                <li class="nav-title">Student</li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="student_profile_update.aspx">
+                        <i class="fa-solid fa-square-parking"></i>&nbsp; Update Profile
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="student_placement_details.aspx">
+                        <i class="fa-solid fa-square-parking"></i>&nbsp; Placement List
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="student_placement_applied_list.aspx">
+                        <i class="fa-solid fa-square-parking"></i>&nbsp; Placement Applied List
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="login_student.aspx">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp; Logout
+                    </a>
+                </li>
+
+            </ul>
+
+            <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+        </div>
+
+        <!-- MAIN WRAPPER -->
+        <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+
+            <!-- HEADER -->
+            <header class="header header-sticky mb-4">
+                <div class="container-fluid">
+
+                    <button class="header-toggler px-md-0 me-md-3" style="color:red"
+                            type="button"
+                            onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+                        <div class="icon icon-lg" style="color:red"><i class="fa-solid fa-bars"></i></div>
+                    </button>
+
+                    <ul class="header-nav d-none d-md-flex">
+                        <li class="nav-item"><a class="nav-link dash">Placement Automation System</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="header-divider"></div>
+            </header>
+
+            <!-- PAGE CONTENT -->
+            <div class="body flex-grow-1 px-3">
+                <div class="container-lg">
+
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="footer">
+                <div><center>Copyrights@ <script>document.write(/\d{4}/.exec(Date())[0])</script></center></div>
+            </footer>
+
+        </div>
+
+    </form>
+
+    <script src="assets/vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
+    <script src="assets/vendors/simplebar/js/simplebar.min.js"></script>
+    <script src="assets/vendors/chart.js/js/chart.min.js"></script>
+    <script src="assets/vendors/@coreui/chartjs/js/coreui-chartjs.js"></script>
+    <script src="assets/vendors/@coreui/utils/js/coreui-utils.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

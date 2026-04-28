@@ -1,0 +1,190 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true"
+    CodeBehind="home.Master.cs"
+    Inherits="CollegePlacementManagementSystem.home" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Placement Automation System</title>
+
+<asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+<asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+
+<link href="assets/css/style.css" rel="stylesheet" />
+<link href="assets/fontawesome/css/all.css" rel="stylesheet" />
+<link href="assets/css/examples.css" rel="stylesheet" />
+<link href="style.css" rel="stylesheet" />
+
+<style>
+
+body{
+margin:0;
+padding:0;
+font-family:Arial;
+}
+
+.navbar{
+background:#0f172a;
+padding:14px 25px;
+box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+
+.navbar-brand{
+color:white !important;
+font-size:24px;
+font-weight:bold;
+text-decoration:none;
+margin-right:30px;
+}
+
+.navbar-nav{
+display:flex;
+list-style:none;
+margin:0;
+padding:0;
+align-items:center;
+}
+
+.navbar-nav li{
+margin-right:10px;
+}
+
+.navbar-nav .nav-link{
+color:#e5e7eb !important;
+text-decoration:none;
+padding:10px 15px;
+border-radius:6px;
+font-size:16px;
+transition:0.3s;
+}
+
+.navbar-nav .nav-link:hover{
+background:#2563eb;
+color:white !important;
+}
+
+.footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:12px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<form id="form1" runat="server">
+
+<nav class="navbar">
+
+<div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+
+<a class="navbar-brand" runat="server" href="~/index.html">
+Placement Automation System
+</a>
+
+<ul class="navbar-nav">
+
+<li>
+<a class="nav-link" runat="server" href="~/index.html">Home</a>
+</li>
+
+<li>
+<a class="nav-link" runat="server" href="~/login_placement.aspx">Placement</a>
+</li>
+
+<li>
+<a class="nav-link" runat="server" href="~/login_student.aspx">Student</a>
+</li>
+
+<li>
+<a class="nav-link" runat="server" href="~/resume_analyzer.aspx">Resume Analyzer</a>
+</li>
+
+<li>
+<a class="nav-link" runat="server" href="~/Eligibility.aspx">Eligibility</a>
+</li>
+
+<li>
+<a class="nav-link" runat="server" href="~/analytics.aspx">Analytics</a>
+</li>
+
+</ul>
+
+</div>
+
+</nav>
+
+<div class="container-fluid">
+
+<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+
+</div>
+
+</form>
+
+<button onclick="toggleChat()"
+style="
+position:fixed;
+bottom:20px;
+right:20px;
+background:#ff6600;
+color:white;
+border:none;
+padding:15px 22px;
+border-radius:50px;
+font-size:16px;
+cursor:pointer;
+z-index:9999;">
+
+AI Chat
+
+</button>
+
+<div id="chatWindow"
+style="
+display:none;
+position:fixed;
+bottom:80px;
+right:20px;
+width:360px;
+height:420px;
+background:white;
+border-radius:12px;
+box-shadow:0 0 15px rgba(0,0,0,0.3);
+z-index:9999;">
+
+<iframe src="AIChat.aspx"
+style="
+width:100%;
+height:100%;
+border:none;
+border-radius:12px;">
+</iframe>
+
+</div>
+
+<script>
+
+function toggleChat()
+{
+    var chat = document.getElementById("chatWindow");
+
+    if(chat.style.display=="none")
+        chat.style.display="block";
+    else
+        chat.style.display="none";
+}
+
+</script>
+
+</body>
+</html>
